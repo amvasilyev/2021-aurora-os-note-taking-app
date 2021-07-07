@@ -14,17 +14,17 @@ TARGET = NoteApplication
 
 CONFIG += sailfishapp
 
-SOURCES += src/NoteApplication.cpp
+SOURCES += src/NoteApplication.cpp \
+    src/note.cpp \
+    src/notelist.cpp
 
 DISTFILES += qml/NoteApplication.qml \
     TODO.md \
-    qml/NoteList.qml \
+    qml/NoteListOld.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
     qml/pages/NoteEditor.qml \
     qml/pages/NoteViewPage.qml \
     qml/pages/NotesListPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/NoteApplication.changes.in \
     rpm/NoteApplication.changes.run.in \
     rpm/NoteApplication.spec \
@@ -43,3 +43,7 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 # TRANSLATIONS += translations/NoteApplication-de.ts
+
+HEADERS += \
+    src/note.h \
+    src/notelist.h

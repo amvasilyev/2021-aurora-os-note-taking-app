@@ -5,14 +5,10 @@ import ".."
 Page {
     id: page
 
-    NoteList {
-        id: noteList
-    }
-
     SilicaListView {
         id: notesView
         anchors.fill: parent
-        model: noteList.model
+        model: noteListStorage
         header: PageHeader {
             title: qsTr("My Notes")
         }
@@ -22,7 +18,7 @@ Page {
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("NoteEditor.qml"));
                     dialog.accepted.connect(function() {
-                        noteList.addNote(dialog.name, dialog.text);
+                        noteListStorage.addNote(dialog.name, dialog.text);
                     });
                 }
             }
