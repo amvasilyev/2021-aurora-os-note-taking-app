@@ -44,6 +44,7 @@ QJsonObject DSPrivate::convertNoteToJsonObject(Note &note) {
 
 QList<Note> DataStorer::readData() {
     QList<Note> notes;
+    qDebug() << "Data file path: " << DSPrivate::formDataFilePath();
     QFile dataFile(DSPrivate::formDataFilePath());
     if(!dataFile.exists()) {
         // Data does not exists

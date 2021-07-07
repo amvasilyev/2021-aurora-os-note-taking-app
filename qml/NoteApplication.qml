@@ -11,4 +11,6 @@ ApplicationWindow
     NoteList {
         id: noteListStorage
     }
+    Component.onCompleted: noteListStorage.readList()
+    Component.onDestruction: noteListStorage.storeList()
 }

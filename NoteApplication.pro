@@ -15,6 +15,7 @@ TARGET = NoteApplication
 CONFIG += sailfishapp
 
 SOURCES += src/NoteApplication.cpp \
+    src/datastorer.cpp \
     src/note.cpp \
     src/notelist.cpp
 
@@ -45,5 +46,6 @@ CONFIG += sailfishapp_i18n
 # TRANSLATIONS += translations/NoteApplication-de.ts
 
 HEADERS += \
+    src/datastorer.h \
     src/note.h \
     src/notelist.h

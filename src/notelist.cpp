@@ -1,6 +1,7 @@
 #include "notelist.h"
 #include <QVariant>
 #include "datastorer.h"
+#include <QDebug>
 
 NoteList::NoteList(QObject* parent) : QAbstractListModel(parent), m_notes()
 {
@@ -28,13 +29,18 @@ QVariant NoteList::data(const QModelIndex &index, int role) const {
 }
 
 void NoteList::addNote(QString name, QString text) {
-    beginInsertRows(index(0), m_notes.size(), m_notes.size() + 1);
+    auto notesSize = m_notes.size();
+    beginInsertRows(QModelIndex(), notesSize, notesSize);
     m_notes.append(Note(name, text));
     endInsertRows();
 }
 
 void NoteList::readList() {
+    beginResetModel();
+    m_notes = DataStorer::readData();
+    endResetModel();
 }
 
 void NoteList::storeList() {
+    DataStorer::storeData(m_notes);
 }
